@@ -8,9 +8,7 @@ class UserController {
 
     const usersRepository = getCustomRepository(UsersRepository);
 
-    const userAlreadyExists = await usersRepository.findOne({
-      email,
-    });
+    const userAlreadyExists = await usersRepository.findOne({ email });
 
     if (userAlreadyExists) {
       return response.status(400).json({
